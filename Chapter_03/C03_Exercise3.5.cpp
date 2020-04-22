@@ -1,4 +1,4 @@
-﻿/* Exercise 3.4 */
+﻿/* Exercise 3.5 */
 
 #include<iostream>
 #include<string>
@@ -10,8 +10,8 @@ using namespace std;
 
 int main()
 {
-	int val1, val2;
-	cout << "Please enter the integer Value 1 and the integer Value 2: ";
+	double val1, val2;
+	cout << "Please enter the floating-point Value 1 and the floating-point Value 2: ";
 	cin >> val1 >> val2;
 	cout << '\n';
 	if (val1 == val2) {
