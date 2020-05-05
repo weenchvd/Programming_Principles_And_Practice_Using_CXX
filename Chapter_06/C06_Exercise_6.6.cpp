@@ -5,6 +5,7 @@
 #include<vector>
 #include<algorithm>
 #include<cmath>
+#include<sstream>
 
 using namespace std;
 
@@ -41,21 +42,27 @@ public:
 		: isFull(false), buffer(0) { }
 	Token Get();
 	void PutBack(Token t);
+	void Clear();
 private:
 	bool isFull;
 	Token buffer;
 };
 
 TokenStream ts;
+istringstream iss;
 
 int main()
 {
 	try {
-		string temp;
+		string line;
 		Token t;
 		cout << "Please enter '-exit' to exit\n";
 		while (true) {
 			cout << "Please enter a sentence:\n";
+			getline(cin, line);
+			iss.clear();
+			iss.str(line);
+			ts.Clear();
 			t = ts.Get();
 			if (t.s == "-exit") {
 				break;
@@ -63,14 +70,11 @@ int main()
 			else {
 				ts.PutBack(t);
 			}
-			if (Sentence() == true) {
+			if (Sentence() == true && iss.eof() == true) {
 				cout << "  OK\n";
 			}
 			else {
 				cout << "  not OK\n";
-				t = ts.Get();
-				cin.putback(t.s[0]);
-				getline(cin, temp);
 			}
 		}
 		return 0;
@@ -93,7 +97,7 @@ Token TokenStream::Get()
 		isFull = false;
 	}
 	else {
-		cin >> t.s;
+		iss >> t.s;
 	}
 	return t;
 }
@@ -107,6 +111,12 @@ void TokenStream::PutBack(Token t)
 		buffer = t;
 		isFull = true;
 	}
+	return;
+}
+
+void TokenStream::Clear()
+{
+	isFull = false;
 	return;
 }
 
