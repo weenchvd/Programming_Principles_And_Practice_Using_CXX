@@ -29,6 +29,10 @@ set (FILE_NAME9 C12_Exercise_12.7)
 set (SOURCE_CXX_LIST9 ${FILE_NAME9}.cpp)
 set (FILE_NAME10 C12_Exercise_12.8)
 set (SOURCE_CXX_LIST10 ${FILE_NAME10}.cpp)
+set (FILE_NAME11 C12_Exercise_12.9)
+set (SOURCE_CXX_LIST11 ${FILE_NAME11}.cpp)
+set (FILE_NAME12 C12_Exercise_12.10)
+set (SOURCE_CXX_LIST12 ${FILE_NAME12}.cpp)
 
 
 # Add source to this project's executable.
@@ -52,6 +56,10 @@ add_executable (${FILE_NAME9} WIN32 ${SOURCE_CXX_LIST9})
 target_link_libraries(${FILE_NAME9} PPP2GUI fltk fltkforms fltkgl fltkimages fltkjpeg fltkpng fltkzlib)
 add_executable (${FILE_NAME10} WIN32 ${SOURCE_CXX_LIST10})
 target_link_libraries(${FILE_NAME10} PPP2GUI fltk fltkforms fltkgl fltkimages fltkjpeg fltkpng fltkzlib)
+add_executable (${FILE_NAME11} WIN32 ${SOURCE_CXX_LIST11})
+target_link_libraries(${FILE_NAME11} PPP2GUI fltk fltkforms fltkgl fltkimages fltkjpeg fltkpng fltkzlib)
+add_executable (${FILE_NAME12} WIN32 ${SOURCE_CXX_LIST12})
+target_link_libraries(${FILE_NAME12} PPP2GUI fltk fltkforms fltkgl fltkimages fltkjpeg fltkpng fltkzlib)
 
 
 # TODO: Add tests and install targets if needed.
@@ -77,3 +85,9 @@ install (TARGETS ${FILE_NAME9} CONFIGURATIONS Debug DESTINATION Build/Debug)
 install (TARGETS ${FILE_NAME9} CONFIGURATIONS Release DESTINATION Build)
 install (TARGETS ${FILE_NAME10} CONFIGURATIONS Debug DESTINATION Build/Debug)
 install (TARGETS ${FILE_NAME10} CONFIGURATIONS Release DESTINATION Build)
+install (TARGETS ${FILE_NAME11} CONFIGURATIONS Debug DESTINATION Build/Debug)
+install (TARGETS ${FILE_NAME11} CONFIGURATIONS Release DESTINATION Build)
+install (FILES C12_Exercise_12.9_11784800.jpg CONFIGURATIONS Debug DESTINATION Build/Debug)
+install (FILES C12_Exercise_12.9_11784800.jpg CONFIGURATIONS Release DESTINATION Build)
+install (TARGETS ${FILE_NAME12} CONFIGURATIONS Debug DESTINATION Build/Debug)
+install (TARGETS ${FILE_NAME12} CONFIGURATIONS Release DESTINATION Build)
