@@ -33,6 +33,12 @@ set (FILE_NAME11 C12_Exercise_12.9)
 set (SOURCE_CXX_LIST11 ${FILE_NAME11}.cpp)
 set (FILE_NAME12 C12_Exercise_12.10)
 set (SOURCE_CXX_LIST12 ${FILE_NAME12}.cpp)
+set (FILE_NAME13 C12_Exercise_12.11)
+set (SOURCE_CXX_LIST13 ${FILE_NAME13}.cpp)
+set (FILE_NAME14 C12_Exercise_12.12)
+set (SOURCE_CXX_LIST14 ${FILE_NAME14}.cpp)
+set (FILE_NAME15 C12_Exercise_12.13)
+set (SOURCE_CXX_LIST15 ${FILE_NAME15}.cpp)
 
 
 # Add source to this project's executable.
@@ -60,6 +66,12 @@ add_executable (${FILE_NAME11} WIN32 ${SOURCE_CXX_LIST11})
 target_link_libraries(${FILE_NAME11} PPP2GUI fltk fltkforms fltkgl fltkimages fltkjpeg fltkpng fltkzlib)
 add_executable (${FILE_NAME12} WIN32 ${SOURCE_CXX_LIST12})
 target_link_libraries(${FILE_NAME12} PPP2GUI fltk fltkforms fltkgl fltkimages fltkjpeg fltkpng fltkzlib)
+add_executable (${FILE_NAME13} WIN32 ${SOURCE_CXX_LIST13})
+target_link_libraries(${FILE_NAME13} PPP2GUI fltk fltkforms fltkgl fltkimages fltkjpeg fltkpng fltkzlib)
+add_executable (${FILE_NAME14} WIN32 ${SOURCE_CXX_LIST14})
+target_link_libraries(${FILE_NAME14} PPP2GUI fltk fltkforms fltkgl fltkimages fltkjpeg fltkpng fltkzlib)
+add_executable (${FILE_NAME15} WIN32 ${SOURCE_CXX_LIST15})
+target_link_libraries(${FILE_NAME15} PPP2GUI fltk fltkforms fltkgl fltkimages fltkjpeg fltkpng fltkzlib)
 
 
 # TODO: Add tests and install targets if needed.
@@ -91,3 +103,9 @@ install (FILES C12_Exercise_12.9_11784800.jpg CONFIGURATIONS Debug DESTINATION B
 install (FILES C12_Exercise_12.9_11784800.jpg CONFIGURATIONS Release DESTINATION Build)
 install (TARGETS ${FILE_NAME12} CONFIGURATIONS Debug DESTINATION Build/Debug)
 install (TARGETS ${FILE_NAME12} CONFIGURATIONS Release DESTINATION Build)
+install (TARGETS ${FILE_NAME13} CONFIGURATIONS Debug DESTINATION Build/Debug)
+install (TARGETS ${FILE_NAME13} CONFIGURATIONS Release DESTINATION Build)
+install (TARGETS ${FILE_NAME14} CONFIGURATIONS Debug DESTINATION Build/Debug)
+install (TARGETS ${FILE_NAME14} CONFIGURATIONS Release DESTINATION Build)
+install (TARGETS ${FILE_NAME15} CONFIGURATIONS Debug DESTINATION Build/Debug)
+install (TARGETS ${FILE_NAME15} CONFIGURATIONS Release DESTINATION Build)
