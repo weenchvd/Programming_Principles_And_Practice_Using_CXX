@@ -77,27 +77,3 @@ Point GetPointOnCircle(Point center, int radius, double angleDegree)
 	int y = center.y - radius * sin(angleRadian);
 	return { x, y };
 }
-
-//void Binary_tree::draw_lines() const
-//{
-//	const int factor = lvl - 2;
-//	Point p = point(0);
-//	int nNodes{ 0 };				// number of nodes
-//	for (int i = 1; i <= lvl; i++) {
-//		if (i == 1) {
-//			nNodes = 1;
-//			fl_circle(p.x, p.y, nodeRadius);
-//		}
-//		else {
-//			nNodes *= 2;
-//			Point leftCenter{ p.x - (distance / 2 + factor * distance), p.y + i * distance };
-//			for (int j = 0; j < nNodes; j++) {
-//
-//
-//
-//
-//
-//			}
-//		}
-//	}
-//}
