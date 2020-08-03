@@ -27,6 +27,8 @@ set (FILE_NAME8 C15_Exercise_15.9)
 set (SOURCE_CXX_LIST8 ${FILE_NAME8}.cpp)
 set (FILE_NAME9 C15_Exercise_15.10)
 set (SOURCE_CXX_LIST9 ${FILE_NAME9}.cpp)
+set (FILE_NAME10 C15_Exercise_15.11)
+set (SOURCE_CXX_LIST10 ${FILE_NAME10}.cpp)
 
 
 # Add source to this project's executable.
@@ -47,6 +49,8 @@ add_executable (${FILE_NAME8} WIN32 ${SOURCE_CXX_LIST8})
 target_link_libraries(${FILE_NAME8} PPP2GUI fltk fltkforms fltkgl fltkimages fltkjpeg fltkpng fltkzlib)
 add_executable (${FILE_NAME9} WIN32 ${SOURCE_CXX_LIST9})
 target_link_libraries(${FILE_NAME9} PPP2GUI fltk fltkforms fltkgl fltkimages fltkjpeg fltkpng fltkzlib)
+add_executable (${FILE_NAME10} WIN32 ${SOURCE_CXX_LIST10})
+target_link_libraries(${FILE_NAME10} PPP2GUI fltk fltkforms fltkgl fltkimages fltkjpeg fltkpng fltkzlib)
 
 
 # TODO: Add tests and install targets if needed.
@@ -70,3 +74,11 @@ install (FILES C15_Exercise_15.9_test.csv CONFIGURATIONS Debug DESTINATION Build
 install (FILES C15_Exercise_15.9_test.csv CONFIGURATIONS Release DESTINATION Build)
 install (TARGETS ${FILE_NAME9} CONFIGURATIONS Debug DESTINATION Build/Debug)
 install (TARGETS ${FILE_NAME9} CONFIGURATIONS Release DESTINATION Build)
+install (TARGETS ${FILE_NAME10} CONFIGURATIONS Debug DESTINATION Build/Debug)
+install (TARGETS ${FILE_NAME10} CONFIGURATIONS Release DESTINATION Build)
+install (FILES C15_Exercise_15.11_Surrey_en_climate_daily_BC_1106CL2_2019_P1D.csv CONFIGURATIONS Debug DESTINATION Build/Debug)
+install (FILES C15_Exercise_15.11_Surrey_en_climate_daily_BC_1106CL2_2019_P1D.csv CONFIGURATIONS Release DESTINATION Build)
+install (FILES C15_Exercise_15.11_Vancouver_en_climate_daily_BC_1105658_2019_P1D.csv CONFIGURATIONS Debug DESTINATION Build/Debug)
+install (FILES C15_Exercise_15.11_Vancouver_en_climate_daily_BC_1105658_2019_P1D.csv CONFIGURATIONS Release DESTINATION Build)
+install (FILES C15_Exercise_15.11_Windsor_en_climate_daily_ON_6139520_2019_P1D.csv CONFIGURATIONS Debug DESTINATION Build/Debug)
+install (FILES C15_Exercise_15.11_Windsor_en_climate_daily_ON_6139520_2019_P1D.csv CONFIGURATIONS Release DESTINATION Build)
