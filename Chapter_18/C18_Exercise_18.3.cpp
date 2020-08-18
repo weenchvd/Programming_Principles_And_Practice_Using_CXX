@@ -1,11 +1,11 @@
-﻿/* Exercise 18.2 */
+﻿/* Exercise 18.3 */
 
 #include<iostream>
 #include<istream>
 #include<string>
 #include<iomanip>
 #include<sstream>
-#include"C18_Exercise_18.2.h"
+#include"C18_Exercise_18.3.h"
 
 using namespace std;
 
@@ -21,10 +21,10 @@ int main()
 {
 	enum Action {
 		EXIT = -1, PRINTACTIONLIST,
-		FIND
+		STRINGCOMPARE
 	};
 	const string actionList = "\tList of actions:\n"
-	"  (1) findx()\n"
+	"  (1) strcmp()\n"
 	"  (-1) Exit, (0) Print the list of actions\n";
 	cout << actionList;
 	const char* indent2 = "  ";
@@ -36,32 +36,26 @@ int main()
 		char ch;
 		cin.get(ch);
 		switch (action) {
-		case FIND: {
-			cout << "\nPlease enter the original string in English (only ASCII): ";
+		case STRINGCOMPARE: {
+			cout << "\nPlease enter the first string in English (only ASCII): ";
 			string s;
 			if (!getline(cin, s)) { ClearInput(cin); error("Error. Incorrect input"); }
-			char* cs = new char[s.size() + 1];
+			char* s1 = new char[s.size() + 1];
 			int i;
-			for (i = 0; i < s.size(); i++) cs[i] = s[i];
-			cs[i] = '\0';
-			cout << "Please enter the search string in English (only ASCII): ";
+			for (i = 0; i < s.size(); i++) s1[i] = s[i];
+			s1[i] = '\0';
+			cout << "Please enter the second string in English (only ASCII): ";
 			string x;
 			if (!getline(cin, x)) { ClearInput(cin); error("Error. Incorrect input"); }
-			char* cx = new char[x.size() + 1];
-			for (i = 0; i < x.size(); i++) cx[i] = x[i];
-			cx[i] = '\0';
-			char* result = find_x(cs, cx);
-			if (result == nullptr) cout << indent2 << "The search string was not found" << endl;
-			else {
-				cout << endl << indent2 << "Address of the origin string: " << static_cast<void*>(cs) << endl
-					<< indent2 << "The origin string: " << cs << endl;
-				cout << indent2 << "Address of the first occurrence of the search string in the origin string: "
-					<< static_cast<void*>(result) << endl
-					<< indent2 << "The origin string from the place where the search string occurs: "
-					<< result << endl;
-			}
-			delete[] cs;
-			delete[] cx;
+			char* s2 = new char[x.size() + 1];
+			for (i = 0; i < x.size(); i++) s2[i] = x[i];
+			s2[i] = '\0';
+			int result = str_cmp(s1, s2);
+			if (result == 0) cout << indent2 << "The strings are equal" << endl;
+			else if (result < 0) cout << "The first string is lexicographically before the second string" << endl;
+			else cout << "The first string is lexicographically after the second string" << endl;
+			delete[] s1;
+			delete[] s2;
 			break;
 		}
 		case PRINTACTIONLIST:
@@ -85,23 +79,15 @@ int main()
 	return 0;
 }
 
-char* find_x(const char* s, const char* x)
+int str_cmp(const char* s1, const char* s2)
 {
-	if (s == nullptr || x == nullptr) return nullptr;
-	char* ret = nullptr;
-	char* ss = const_cast<char*>(s);
-	char* xx = const_cast<char*>(x);
-	for (; *ss != '\0'; ss++) {
-		if (*ss == *xx) {
-			ret = ss;
-			char* tss = ss + 1;
-			char* txx = xx + 1;
-			for (; *tss == *txx && *tss != '\0'; tss++, txx++);
-			if (*tss == *txx || *txx == '\0') return ret;
-			if (*tss == '\0') break;
-		}
+	char* ps1 = const_cast<char*>(s1);
+	char* ps2 = const_cast<char*>(s2);
+	while (*ps1 == *ps2 && *ps1 != '\0') {
+		ps1++;
+		ps2++;
 	}
-	return nullptr;
+	return *ps1 - *ps2;
 }
 
 void ClearInput(istream& is)

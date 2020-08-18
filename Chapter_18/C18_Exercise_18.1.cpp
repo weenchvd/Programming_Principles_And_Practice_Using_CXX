@@ -79,7 +79,7 @@ char* str_dup(const char* s)
 	for (ss = const_cast<char*>(s), size = 0; *ss != '\0'; ss++, size++);
 	char* duplicate = new char[++size];
 	ss = const_cast<char*>(s);
-	for (char* dd = duplicate; *ss != '\0'; ss++, dd++) *dd = *ss;
+	for (char* dd = duplicate; (*dd = *ss) != '\0'; ss++, dd++);
 	return duplicate;
 }
 
