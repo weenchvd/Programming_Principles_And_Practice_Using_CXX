@@ -35,6 +35,8 @@ set (FILE_NAME12 C19_Exercise_19.11)
 set (SOURCE_CXX_LIST12 ${FILE_NAME12}.cpp)
 set (FILE_NAME13 C19_Exercise_19.12)
 set (SOURCE_CXX_LIST13 ${FILE_NAME13}.cpp)
+set (FILE_NAME14 C19_Exercise_19.13)
+set (SOURCE_CXX_LIST14 ${FILE_NAME14}.cpp)
 
 
 # Add source to this project's executable.
@@ -51,6 +53,7 @@ add_executable (${FILE_NAME10} ${SOURCE_CXX_LIST10})
 add_executable (${FILE_NAME11} ${SOURCE_CXX_LIST11})
 add_executable (${FILE_NAME12} ${SOURCE_CXX_LIST12})
 add_executable (${FILE_NAME13} ${SOURCE_CXX_LIST13})
+add_executable (${FILE_NAME14} ${SOURCE_CXX_LIST14})
 
 
 # TODO: Add tests and install targets if needed.
@@ -82,3 +85,5 @@ install (TARGETS ${FILE_NAME13} CONFIGURATIONS Debug DESTINATION Build/Debug)
 install (TARGETS ${FILE_NAME13} CONFIGURATIONS Release DESTINATION Build)
 install (FILES C19_Exercise_19.12_numbers.txt CONFIGURATIONS Debug DESTINATION Build/Debug)
 install (FILES C19_Exercise_19.12_numbers.txt CONFIGURATIONS Release DESTINATION Build)
+install (TARGETS ${FILE_NAME14} CONFIGURATIONS Debug DESTINATION Build/Debug)
+install (TARGETS ${FILE_NAME14} CONFIGURATIONS Release DESTINATION Build)
