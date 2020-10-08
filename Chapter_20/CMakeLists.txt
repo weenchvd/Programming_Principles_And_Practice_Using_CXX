@@ -27,6 +27,8 @@ set (FILE_NAME8 C20_Exercise_20.8)
 set (SOURCE_CXX_LIST8 ${FILE_NAME8}.cpp)
 set (FILE_NAME9 C20_Exercise_20.9)
 set (SOURCE_CXX_LIST9 ${FILE_NAME9}.cpp)
+set (FILE_NAME10 C20_Exercise_20.10)
+set (SOURCE_CXX_LIST10 ${FILE_NAME10}.cpp)
 
 
 # Add source to this project's executable.
@@ -39,6 +41,7 @@ add_executable (${FILE_NAME6} ${SOURCE_CXX_LIST6})
 add_executable (${FILE_NAME7} ${SOURCE_CXX_LIST7})
 add_executable (${FILE_NAME8} ${SOURCE_CXX_LIST8})
 add_executable (${FILE_NAME9} ${SOURCE_CXX_LIST9})
+add_executable (${FILE_NAME10} ${SOURCE_CXX_LIST10})
 
 
 # TODO: Add tests and install targets if needed.
@@ -64,3 +67,5 @@ install (TARGETS ${FILE_NAME8} CONFIGURATIONS Debug DESTINATION Build/Debug)
 install (TARGETS ${FILE_NAME8} CONFIGURATIONS Release DESTINATION Build)
 install (TARGETS ${FILE_NAME9} CONFIGURATIONS Debug DESTINATION Build/Debug)
 install (TARGETS ${FILE_NAME9} CONFIGURATIONS Release DESTINATION Build)
+install (TARGETS ${FILE_NAME10} CONFIGURATIONS Debug DESTINATION Build/Debug)
+install (TARGETS ${FILE_NAME10} CONFIGURATIONS Release DESTINATION Build)
