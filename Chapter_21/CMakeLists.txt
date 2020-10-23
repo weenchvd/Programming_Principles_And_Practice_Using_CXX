@@ -21,6 +21,10 @@ set (FILE_NAME5 C21_Exercise_21.7)
 set (SOURCE_CXX_LIST5 ${FILE_NAME5}.cpp)
 set (FILE_NAME6 C21_Exercise_21.8)
 set (SOURCE_CXX_LIST6 ${FILE_NAME6}.cpp)
+set (FILE_NAME7 C21_Exercise_21.9)
+set (SOURCE_CXX_LIST7 ${FILE_NAME7}.cpp)
+set (FILE_NAME8 C21_Exercise_21.10)
+set (SOURCE_CXX_LIST8 ${FILE_NAME8}.cpp)
 
 
 # Add source to this project's executable.
@@ -30,6 +34,8 @@ add_executable (${FILE_NAME3} ${SOURCE_CXX_LIST3})
 add_executable (${FILE_NAME4} ${SOURCE_CXX_LIST4})
 add_executable (${FILE_NAME5} ${SOURCE_CXX_LIST5})
 add_executable (${FILE_NAME6} ${SOURCE_CXX_LIST6})
+add_executable (${FILE_NAME7} ${SOURCE_CXX_LIST7})
+add_executable (${FILE_NAME8} ${SOURCE_CXX_LIST8})
 
 
 # TODO: Add tests and install targets if needed.
@@ -45,3 +51,11 @@ install (TARGETS ${FILE_NAME5} CONFIGURATIONS Debug DESTINATION Build/Debug)
 install (TARGETS ${FILE_NAME5} CONFIGURATIONS Release DESTINATION Build)
 install (TARGETS ${FILE_NAME6} CONFIGURATIONS Debug DESTINATION Build/Debug)
 install (TARGETS ${FILE_NAME6} CONFIGURATIONS Release DESTINATION Build)
+install (TARGETS ${FILE_NAME7} CONFIGURATIONS Debug DESTINATION Build/Debug)
+install (TARGETS ${FILE_NAME7} CONFIGURATIONS Release DESTINATION Build)
+install (FILES C21_Exercise_21.9_Orders_001.ord CONFIGURATIONS Debug DESTINATION Build/Debug)
+install (FILES C21_Exercise_21.9_Orders_001.ord CONFIGURATIONS Release DESTINATION Build)
+install (FILES C21_Exercise_21.9_Orders_002.ord CONFIGURATIONS Debug DESTINATION Build/Debug)
+install (FILES C21_Exercise_21.9_Orders_002.ord CONFIGURATIONS Release DESTINATION Build)
+install (TARGETS ${FILE_NAME8} CONFIGURATIONS Debug DESTINATION Build/Debug)
+install (TARGETS ${FILE_NAME8} CONFIGURATIONS Release DESTINATION Build)
