@@ -14,11 +14,12 @@ namespace WumpusGame {
 	constexpr int numberOfArrows = 5;
 
 	// don't change
-	constexpr int numberOfRooms = sizeOfCave * 10 + 10;
+	constexpr int roomsInCircle = 5;
+	constexpr int numberOfRooms = sizeOfCave * roomsInCircle * 2 + roomsInCircle * 2;
 	constexpr int numberOfTunnels = 3;
-	constexpr int numberOfPaths = numberOfRooms * numberOfTunnels;
-	constexpr int firstRoom = 0;
-	constexpr int lastRoom = numberOfRooms - 1;
+	//constexpr int numberOfPaths = numberOfRooms * numberOfTunnels;
+	constexpr int firstRoom = 1;
+	constexpr int lastRoom = numberOfRooms + firstRoom - 1;
 	constexpr int notAssigned = firstRoom - 1;
 
 	const char* space_c2 = "  ";
@@ -35,7 +36,9 @@ namespace WumpusGame {
 		"\nWelcome to the game \"Hunt the Wumpus!\"\n"
 		"Example of action:\n"
 		"'m13' - go to room #13\n"
-		"'s3' - shoot at room #3, 's16-7' - shoot at room #16-7, 's1-4-2' - shoot at room #1-4-2\n\n";
+		"'s3' - shoot at room #3-RandomRoom-RandomRoom\n"
+		"'s16-7' - shoot at room #16-7-RandomRoom\n"
+		"'s1-4-2' - shoot at room #1-4-2\n\n";
 
 	enum class ActionType {
 		NOACTION, MOVE, SHOOT,
@@ -61,7 +64,8 @@ namespace WumpusGame {
 	};
 
 	struct Room {
-		Room() : adj1{ notAssigned }, adj2{ notAssigned }, adj3{ notAssigned } {}
+		Room() : num{ notAssigned }, adj1{ notAssigned }, adj2{ notAssigned }, adj3{ notAssigned } {}
+		int num;												// room number
 		int adj1;												// number of the adjoining room #1
 		int adj2;												// number of the adjoining room #2
 		int adj3;												// number of the adjoining room #3
@@ -81,13 +85,14 @@ namespace WumpusGame {
 		int bRoom;												// room number with the bat
 		int nArrows{ numberOfArrows };							// number of arrows
 		int state{ int(State::INITIALSTATE) };
+		int ref[firstRoom + numberOfRooms];						// usage: rooms[ref[n]], n = [firstRoom : lastRoom]
 		Room rooms[numberOfRooms];
 		Action act;
 
 		void ChangeRandomSeed() const;
 		void BuildTunnels();
 		inline int NextRoom(int first, int last, int n) const;
-		void ErasePaths();
+		int GetRandomRoomNumber(vector<bool>& numbers);
 		void Move();
 		void Shoot();
 		bool BatAction();

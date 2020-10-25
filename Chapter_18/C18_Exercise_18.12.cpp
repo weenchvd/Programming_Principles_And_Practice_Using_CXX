@@ -3,11 +3,10 @@
 #include<iostream>
 #include<istream>
 #include<string>
+#include<vector>
 #include<iomanip>
 #include<sstream>
 #include"C18_Exercise_18.12.h"
-
-#define PRINTROOM(n) n + 1
 
 using namespace std;
 using namespace WumpusGame;
@@ -100,18 +99,24 @@ Cave::Cave()
 
 void Cave::PrintPrompt() const
 {
-	cout << endl << space_c2 << "You are in room #" << PRINTROOM(hRoom) << endl;
-	if (rooms[hRoom].adj1 == wRoom || rooms[hRoom].adj2 == wRoom || rooms[hRoom].adj3 == wRoom) {
+	cout << endl << space_c2 << "You are in room #" << hRoom << endl;
+	if (rooms[ref[hRoom]].adj1 == ref[wRoom] || rooms[ref[hRoom]].adj2 == ref[wRoom]
+		|| rooms[ref[hRoom]].adj3 == ref[wRoom]) {
 		cout << space_c4 << "I smell the wumpus" << endl;
 	}
-	if (rooms[hRoom].adj1 == pRoom || rooms[hRoom].adj2 == pRoom || rooms[hRoom].adj3 == pRoom) {
+	if (rooms[ref[hRoom]].adj1 == ref[pRoom] || rooms[ref[hRoom]].adj2 == ref[pRoom]
+		|| rooms[ref[hRoom]].adj3 == ref[pRoom]) {
 		cout << space_c4 << "I feel a breeze" << endl;
 	}
-	if (rooms[hRoom].adj1 == bRoom || rooms[hRoom].adj2 == bRoom || rooms[hRoom].adj3 == bRoom) {
+	if (rooms[ref[hRoom]].adj1 == ref[bRoom] || rooms[ref[hRoom]].adj2 == ref[bRoom]
+		|| rooms[ref[hRoom]].adj3 == ref[bRoom]) {
 		cout << space_c4 << "I hear a bat" << endl;
 	}
-	cout << space_c2 << "Tunnels lead to " << PRINTROOM(rooms[hRoom].adj1) << ", "
-		<< PRINTROOM(rooms[hRoom].adj2) << ", " << PRINTROOM(rooms[hRoom].adj3) << endl;
+	int adj1 = rooms[ref[hRoom]].adj1;
+	int adj2 = rooms[ref[hRoom]].adj2;
+	int adj3 = rooms[ref[hRoom]].adj3;
+	cout << space_c2 << "Tunnels lead to " << rooms[adj1].num << ", "
+		<< rooms[adj2].num << ", " << rooms[adj3].num << endl;
 }
 
 void Cave::GetAction()
@@ -156,7 +161,8 @@ bool Cave::DoAction()
 		int old = wRoom;
 		while (true) {
 			wRoom = randint(firstRoom, lastRoom + 1);
-			if (wRoom == rooms[old].adj1 || wRoom == rooms[old].adj2 || wRoom == rooms[old].adj3) break;
+			if (ref[wRoom] == rooms[ref[old]].adj1 || ref[wRoom] == rooms[ref[old]].adj2
+				|| ref[wRoom] == rooms[ref[old]].adj3) break;
 			continue;
 		}
 		if (wRoom == hRoom) state |= int(State::WUMPUSCAMETOYOU);
@@ -166,16 +172,15 @@ bool Cave::DoAction()
 
 void Cave::Move()
 {
-	cout << space_c4 << "You go to room #" << PRINTROOM(act.room1) << endl;
+	cout << space_c4 << "You go to room #" << act.room1 << endl;
 	hRoom = act.room1;
 	if (hRoom == wRoom) state |= int(State::YOUCAMETOWUMPUS);
 }
 
 void Cave::Shoot()
 {
-	cout << space_c4 << "You shoot at rooms #" << PRINTROOM(act.room1) << "-"
-		<< PRINTROOM(act.room2) << "-" << PRINTROOM(act.room3) << endl;
-	if (!(state & ~int(State::WUMPUSISMOVING))) cout << space_c4 << "Wumpus is awake" << endl;
+	cout << space_c4 << "You shoot at rooms #" << act.room1 << "-" << act.room2 << "-" << act.room3 << endl;
+	if (!(state & int(State::WUMPUSISMOVING))) cout << space_c4 << "Wumpus is awake" << endl;
 	state |= int(State::WUMPUSISMOVING);
 	if (act.room1 == wRoom || act.room2 == wRoom || act.room3 == wRoom) state |= int(State::YOUKILLEDWUMPUS);
 	if (act.room1 == hRoom || act.room2 == hRoom || act.room3 == hRoom) state |= int(State::YOUKILLEDYOURSELF);
@@ -189,8 +194,7 @@ bool Cave::BatAction()
 	while (hRoom == n) n = randint(firstRoom, lastRoom + 1);
 	hRoom = n;
 	if (hRoom == wRoom) state |= int(State::BATCARRIEDYOUTOWUMPUS);
-	cout << space_c4 << "You are in a room with a bat. She grabs you and carries you to room #"
-		<< PRINTROOM(hRoom) << endl;
+	cout << space_c4 << "You are in a room with a bat. She grabs you and carries you to room #" << hRoom << endl;
 	while (hRoom == n || bRoom == n) n = randint(firstRoom, lastRoom + 1);
 	bRoom = n;
 	return Check();
@@ -240,43 +244,44 @@ void Cave::ChangeRandomSeed() const
 
 void Cave::BuildTunnels()
 {
-	constexpr int numberOfAttempts = 1000;
-	int j = 0;
-	for (int i = 0; i < nRooms; i++) {
-		// assign 'adj1'
-		while (rooms[i].adj1 == notAssigned && ++j < numberOfAttempts) {
-			int n = randint(firstRoom, lastRoom + 1);
-			while (i == n) n = NextRoom(firstRoom, lastRoom, n);
-			if (rooms[n].adj1 == notAssigned) rooms[n].adj1 = i;
-			else if (rooms[n].adj2 == notAssigned) rooms[n].adj2 = i;
-			else if (rooms[n].adj3 == notAssigned) rooms[n].adj3 = i;
-			else continue;
-			rooms[i].adj1 = n;
+	// adj1 - next room clockwise in the current circle
+	// adj2 - next room counterclockwise in the current circle
+	// adj3 - room is one step further to the inner/outer circle than the current circle
+	// inner circle
+	for (int i = 0; i < roomsInCircle; i++) {
+		int next = (i + 1) % roomsInCircle;
+		rooms[i].adj1 = next;
+		rooms[next].adj2 = i;
+		rooms[i].adj3 = i + roomsInCircle;
+		rooms[i + roomsInCircle].adj3 = i;
+	}
+	// outer circle
+	for (int i = numberOfRooms - roomsInCircle; i < numberOfRooms; i++) {
+		int next = ((i + 1) % roomsInCircle) ? i + 1 : i + 1 - roomsInCircle;
+		rooms[i].adj1 = next;
+		rooms[next].adj2 = i;
+	}
+	// remaining circles
+	for (int i = 0; i < sizeOfCave; i++) {
+		for (int j = i * roomsInCircle * 2 + roomsInCircle; j < i * roomsInCircle * 2 + roomsInCircle * 2; j++) {
+			rooms[j].adj1 = j + roomsInCircle;
+			rooms[j + roomsInCircle].adj2 = j;
 		}
-		// assign 'adj2'
-		while (rooms[i].adj2 == notAssigned && ++j < numberOfAttempts) {
-			int n = randint(firstRoom, lastRoom + 1);
-			while (i == n || rooms[i].adj1 == n) n = NextRoom(firstRoom, lastRoom, n);
-			if (rooms[n].adj1 == notAssigned) rooms[n].adj1 = i;
-			else if (rooms[n].adj2 == notAssigned) rooms[n].adj2 = i;
-			else if (rooms[n].adj3 == notAssigned) rooms[n].adj3 = i;
-			else continue;
-			rooms[i].adj2 = n;
+		for (int j = i * roomsInCircle * 2 + roomsInCircle * 2; j < (i + 1) * roomsInCircle * 2 + roomsInCircle; j++) {
+			int next = ((j - 4) % roomsInCircle) ? j - 4 : j - 4 - roomsInCircle;
+			rooms[j].adj1 = next;
+			rooms[next].adj2 = j;
+			rooms[j].adj3 = j + roomsInCircle;
+			rooms[j + roomsInCircle].adj3 = j;
 		}
-		// assign 'adj3'
-		while (rooms[i].adj3 == notAssigned && ++j < numberOfAttempts) {
-			int n = randint(firstRoom, lastRoom + 1);
-			while (i == n || rooms[i].adj1 == n || rooms[i].adj2 == n) n = NextRoom(firstRoom, lastRoom, n);
-			if (rooms[n].adj1 == notAssigned) rooms[n].adj1 = i;
-			else if (rooms[n].adj2 == notAssigned) rooms[n].adj2 = i;
-			else if (rooms[n].adj3 == notAssigned) rooms[n].adj3 = i;
-			else continue;
-			rooms[i].adj3 = n;
-		}
-		if (j >= numberOfAttempts) {
-			i = j = -1;
-			ErasePaths();
-		}
+	}
+	// assign room numbers
+	vector<bool> numbers;
+	numbers.resize(firstRoom + numberOfRooms, false);
+	for (int i = 0; i < numberOfRooms; i++) {
+		int n = GetRandomRoomNumber(numbers);
+		rooms[i].num = n;
+		ref[n] = i;
 	}
 }
 
@@ -286,28 +291,34 @@ inline int Cave::NextRoom(int first, int last, int n) const
 	return (n >= last) ? first : n + 1;
 }
 
-void Cave::ErasePaths()
+int Cave::GetRandomRoomNumber(vector<bool>& numbers)
 {
-	for (int i = 0; i < nRooms; i++) {
-		rooms[i].adj1 = notAssigned;
-		rooms[i].adj2 = notAssigned;
-		rooms[i].adj3 = notAssigned;
-	}
+	int n = randint(firstRoom, lastRoom + 1);
+	while (numbers[n]) n = NextRoom(firstRoom, lastRoom, n);
+	numbers[n] = true;
+	return n;
 }
 
 void Cave::PrintMap() const
 {
 	constexpr int indentNum = 2;
 	cout << endl << line_c60 << endl;
-	cout << space_c8 << "You are" << inRoom_c10 << PRINTROOM(hRoom) << endl;
-	cout << space_c8 << "Wumpus is" << inRoom_c10 << PRINTROOM(wRoom) << endl;
-	cout << space_c8 << "Pit is" << inRoom_c10 << PRINTROOM(pRoom) << endl;
-	cout << space_c8 << "Bat is" << inRoom_c10 << PRINTROOM(bRoom) << endl << endl;
-	for (int i = 0; i < nRooms; i++) {
-		cout << space_c8 << room_c6 << setw(indentNum) << right << PRINTROOM(i) << colon_c2 << tunnel_c10
-			<< setw(indentNum) << PRINTROOM(rooms[i].adj1) << ", "
-			<< setw(indentNum) << PRINTROOM(rooms[i].adj2) << ", "
-			<< setw(indentNum) << PRINTROOM(rooms[i].adj3) << endl;
+	cout << space_c8 << "You are" << inRoom_c10 << hRoom << endl;
+	cout << space_c8 << "Wumpus is" << inRoom_c10 << wRoom << endl;
+	cout << space_c8 << "Pit is" << inRoom_c10 << pRoom << endl;
+	cout << space_c8 << "Bat is" << inRoom_c10 << bRoom << endl << endl;
+	for (int j = firstRoom; j <= lastRoom; j++) {
+		for (int i = 0; i < nRooms; i++) {
+			if (j == rooms[i].num) {
+				int adj1 = rooms[ref[j]].adj1;
+				int adj2 = rooms[ref[j]].adj2;
+				int adj3 = rooms[ref[j]].adj3;
+				cout << space_c8 << room_c6 << setw(indentNum) << right << j << colon_c2 << tunnel_c10
+					<< setw(indentNum) << rooms[adj1].num << ", "
+					<< setw(indentNum) << rooms[adj2].num << ", "
+					<< setw(indentNum) << rooms[adj3].num << endl;
+			}
+		}
 	}
 	cout << line_c60 << endl;
 	int count[numberOfRooms];
@@ -326,16 +337,17 @@ int Cave::GetRandomNextRoom(int prevRoom, int currentRoom) const
 {
 	while (true) {
 		int n = randint(firstRoom, lastRoom + 1);
-		if ((n == rooms[currentRoom].adj1 || n == rooms[currentRoom].adj2 || n == rooms[currentRoom].adj3)
-			&& n != prevRoom) return n;
+		if ((ref[n] == rooms[ref[currentRoom]].adj1 || ref[n] == rooms[ref[currentRoom]].adj2
+			|| ref[n] == rooms[ref[currentRoom]].adj3) && n != prevRoom) return n;
 		continue;
 	}
 }
 
 bool Cave::IsValidNextRoom(int currentRoom, int nextRoom) const
 {
-	if (nextRoom == rooms[currentRoom].adj1 || nextRoom == rooms[currentRoom].adj2
-		|| nextRoom == rooms[currentRoom].adj3) return true;
+	if (nextRoom < firstRoom || nextRoom > lastRoom) return false;
+	if (ref[nextRoom] == rooms[ref[currentRoom]].adj1 || ref[nextRoom] == rooms[ref[currentRoom]].adj2
+		|| ref[nextRoom] == rooms[ref[currentRoom]].adj3) return true;
 	return false;
 }
 
@@ -350,7 +362,7 @@ bool Cave::ParseInput(const string& s, Action& a) const
 		a.type = ActionType::MOVE;
 		int room1;
 		if (!(iss >> room1)) return false;
-		if (!IsValidNextRoom(hRoom, --room1)) return false;
+		if (!IsValidNextRoom(hRoom, room1)) return false;
 		a.room1 = room1;
 		break;
 	}
@@ -359,16 +371,16 @@ bool Cave::ParseInput(const string& s, Action& a) const
 		int room1, room2, room3;
 		char hyphen;
 		if (!(iss >> room1)) return false;
-		if (!IsValidNextRoom(hRoom, --room1)) return false;
+		if (!IsValidNextRoom(hRoom, room1)) return false;
 		if (iss.get(hyphen) && hyphen == '-') {
 			if (!(iss >> room2)) return false;
-			if (!IsValidNextRoom(room1, --room2)) return false;
+			if (!IsValidNextRoom(room1, room2)) return false;
 			if (room2 == hRoom) return false;
 		}
 		else room2 = GetRandomNextRoom(hRoom, room1);
 		if (iss.get(hyphen) && hyphen == '-') {
 			if (!(iss >> room3)) return false;
-			if (!IsValidNextRoom(room2, --room3)) return false;
+			if (!IsValidNextRoom(room2, room3)) return false;
 			if (room3 == room1) return false;
 		}
 		else room3 = GetRandomNextRoom(room1, room2);
