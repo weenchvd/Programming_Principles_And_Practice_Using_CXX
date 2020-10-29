@@ -31,6 +31,8 @@ set (FILE_NAME10 C21_Exercise_21.12)
 set (SOURCE_CXX_LIST10 ${FILE_NAME10}.cpp)
 set (FILE_NAME11 C21_Exercise_21.13)
 set (SOURCE_CXX_LIST11 ${FILE_NAME11}.cpp)
+set (FILE_NAME12 C21_Exercise_21.14)
+set (SOURCE_CXX_LIST12 ${FILE_NAME12}.cpp)
 
 
 # Add source to this project's executable.
@@ -47,6 +49,7 @@ target_link_libraries(${FILE_NAME9} PPP2GUI fltk fltkforms fltkgl fltkimages flt
 add_executable (${FILE_NAME10} WIN32 ${SOURCE_CXX_LIST10})
 target_link_libraries(${FILE_NAME10} PPP2GUI fltk fltkforms fltkgl fltkimages fltkjpeg fltkpng fltkzlib)
 add_executable (${FILE_NAME11} ${SOURCE_CXX_LIST11})
+add_executable (${FILE_NAME12} ${SOURCE_CXX_LIST12})
 
 
 # TODO: Add tests and install targets if needed.
@@ -76,3 +79,5 @@ install (TARGETS ${FILE_NAME10} CONFIGURATIONS Debug DESTINATION Build/Debug)
 install (TARGETS ${FILE_NAME10} CONFIGURATIONS Release DESTINATION Build)
 install (TARGETS ${FILE_NAME11} CONFIGURATIONS Debug DESTINATION Build/Debug)
 install (TARGETS ${FILE_NAME11} CONFIGURATIONS Release DESTINATION Build)
+install (TARGETS ${FILE_NAME12} CONFIGURATIONS Debug DESTINATION Build/Debug)
+install (TARGETS ${FILE_NAME12} CONFIGURATIONS Release DESTINATION Build)
