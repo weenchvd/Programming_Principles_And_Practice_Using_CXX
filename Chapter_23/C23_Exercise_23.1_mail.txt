@@ -1,0 +1,55 @@
+From: John Doe <jdoe@machine.example>
+To: Mary Smith <mary@example.net>
+Subject: Saying Hello
+Date: Fri, 21 Nov 1997 09:55:06 -0600
+Message-ID: <1234@local.machine.example>
+
+This is a message just to say hello.
+So, "Hello".
+----
+From: Mary Smith <mary@example.net>
+To: John Doe <jdoe@machine.example>
+Reply-To: "Mary Smith: Personal Account" <smith@home.example>
+Subject: Re: Saying Hello
+Date: Fri, 21 Nov 1997 10:01:10 -0600
+Message-ID: <3456@example.net>
+In-Reply-To: <1234@local.machine.example>
+References: <1234@local.machine.example>
+
+This is a reply to your hello.
+----
+To: "Mary Smith: Personal Account" <smith@home.example>
+From: John Doe <jdoe@machine.example>
+Subject: Re: Saying Hello
+Date: Fri, 21 Nov 1997 11:00:00 -0600
+Message-ID: <abcd.1234@local.machine.tld>
+In-Reply-To: <3456@example.net>
+References: <1234@local.machine.example> <3456@example.net>
+
+This is a reply to your reply.
+----
+From: John Doe <jdoe@machine.example>
+To: Chester Cole <ccole@example.net>
+Subject: Hello to Chester
+Date: Fri, 23 Nov 1997 09:00:06 -0600
+Message-ID: <5555@local.machine.example>
+
+One more "Hello".
+----
+From: John Doe <jdoe@machine.example>
+To: Eli Harris <eharris@example.net>
+Subject: Hello to Eli
+Date: Fri, 23 Nov 1997 09:01:15 -0600
+Message-ID: <6666@local.machine.example>
+
+One more "Hello".
+----
+From: Mary Smith <mary@example.net>
+To: Chester Cole <ccole@example.net>
+Subject: Business proposal
+Date: Fri, 25 Nov 1997 10:36:19 -0600
+Message-ID: <3478@example.net>
+
+Good morning, Chester
+I have a business proposal for you
+----
