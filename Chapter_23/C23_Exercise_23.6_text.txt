@@ -1,0 +1,145 @@
+According to Merriam-Webster's Medical Dictionary, 21/12/2001
+pneumonoultramicroscopicsilicovolcanoconiosis 21/12/2001 is a
+21/12/2001 pneumoconiosis
+caused by inhalation 21/12/2001 
+ 21/12/2001 of very fine silicate or quartz dust.
+23/12/2000
+23/12/2000 gfdgfd
+gfdgdfg 23/12/2000
+23/12/2000
+23/12/2000 dfsdf
+sdfsdf 23/12/2000
+
+01 true 2/22/90
+02 true 2/2/1990
+03 true 12/03/90
+04 true 12/23/2000
+05 true 23/12/2000
+06 true 03/12/2000
+07 true 3/12/20
+08 true 23/2/20
+09 true 23/02/2000
+10 true 23/12/2000
+
+11 true 2-29-1990
+12 true 29-2-1990
+13 true 1-1-00
+14 true 01-01-00
+15 true 31-01-00
+16 true 1-31-00
+17 true 28-02-2020
+18 true 31-10-2020
+19 true 10-31-2020
+20 true 31-12-2020
+
+21 true 02.29.00
+22 true 29.02.00
+23 true 1.1.00
+24 true 01.01.00
+25 true 31.01.2000
+26 true 1.31.2000
+27 true 28.02.2020
+28 true 31.10.2020
+29 true 10.31.2020
+30 true 31.12.2020
+
+31 true 90/2/22
+32 true 1990/2/2
+33 true 90/12/03
+34 true 2000/12/23
+35 true 2000/23/12
+36 true 2000/03/12
+37 true 20/3/12
+38 true 20/23/2
+39 true 2000/23/02
+40 true 2000/23/12
+
+41 true 1990-2-29
+42 true 1990-29-2
+43 true 00-1-1
+44 true 00-01-01
+45 true 00-31-01
+46 true 00-1-31
+47 true 2020-28-02
+48 true 2020-31-10
+49 true 2020-10-31
+50 true 2020-31-12
+
+51 true 00.02.29
+52 true 00.29.02
+53 true 00.1.1
+54 true 00.01.01
+55 true 2000.31.01
+56 true 2000.1.31
+57 true 2020.28.02
+58 true 2020.31.10
+59 true 2020.10.31
+60 true 2020.31.12
+
+101 false 2/22/900
+102 false 22/22/1990
+103 false 13/13/90
+104 false 12/23/200
+105 false 23/12/200
+106 false 033/12/2000
+107 false 32/12/2000
+108 false 33/14/20
+109 false 00/2/2000
+110 false 23/0/20
+
+111 false 29-29-1990
+112 false 29-2-199
+113 false 0-1-00
+114 false 01-0-00
+115 false 32-01-00
+116 false 13-31-00
+117 false 28-22-2000
+118 false 32-10-2000
+119 false 13-31-2020
+120 false 31-12-20204
+
+121 false 02.29.000
+122 false 29.02.000
+123 false 13.13.00
+124 false 91.01.00
+125 false 31.21.2000
+126 false 1.32.2000
+127 false 28.22.2020
+128 false 31.10.202
+129 false 10.31.200
+130 false 111.12.2020
+
+131 false 900/2/22
+132 false 1990/22/22
+133 false 90/13/13
+134 false 200/12/23
+135 false 200/23/12
+136 false 2000/033/12
+137 false 2000/32/12
+138 false 20/33/14
+139 false 2000/00/2
+140 false 20/23/0
+
+141 false 1990-29-29
+142 false 199-29-2
+143 false 00-0-1
+144 false 00-01-0
+145 false 00-32-01
+146 false 00-13-31
+147 false 2000-28-22-2000
+148 false 2000-32-10-2000
+149 false 202013-31-2020
+150 false 20204-31-12
+
+151 false 000.02.29
+152 false 000.29.02.000
+153 false 00.13.13.00
+154 false 00.91.01
+155 false 2000.31.21
+156 false 2000.1.32
+157 false 2020.28.22.2020
+158 false 2020.31.10.202
+159 false 200.10.31
+160 false 2020.111.12
+
+
