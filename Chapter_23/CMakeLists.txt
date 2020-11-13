@@ -31,6 +31,10 @@ set (FILE_NAME10 C23_Exercise_23.9)
 set (SOURCE_CXX_LIST10 ${FILE_NAME10}.cpp)
 set (FILE_NAME11 C23_Exercise_23.10)
 set (SOURCE_CXX_LIST11 ${FILE_NAME11}.cpp)
+set (FILE_NAME12 C23_Exercise_23.11)
+set (SOURCE_CXX_LIST12 ${FILE_NAME12}.cpp)
+set (FILE_NAME13 C23_Exercise_23.12)
+set (SOURCE_CXX_LIST13 ${FILE_NAME13}.cpp)
 
 
 # Add source to this project's executable.
@@ -45,6 +49,8 @@ add_executable (${FILE_NAME8} ${SOURCE_CXX_LIST8})
 add_executable (${FILE_NAME9} ${SOURCE_CXX_LIST9})
 add_executable (${FILE_NAME10} ${SOURCE_CXX_LIST10})
 add_executable (${FILE_NAME11} ${SOURCE_CXX_LIST11})
+add_executable (${FILE_NAME12} ${SOURCE_CXX_LIST12})
+add_executable (${FILE_NAME13} ${SOURCE_CXX_LIST13})
 
 
 # TODO: Add tests and install targets if needed.
@@ -80,3 +86,7 @@ install (FILES C23_Exercise_23.9_table.txt CONFIGURATIONS Debug DESTINATION Buil
 install (FILES C23_Exercise_23.9_table.txt CONFIGURATIONS Release DESTINATION Build)
 install (TARGETS ${FILE_NAME11} CONFIGURATIONS Debug DESTINATION Build/Debug)
 install (TARGETS ${FILE_NAME11} CONFIGURATIONS Release DESTINATION Build)
+install (TARGETS ${FILE_NAME12} CONFIGURATIONS Debug DESTINATION Build/Debug)
+install (TARGETS ${FILE_NAME12} CONFIGURATIONS Release DESTINATION Build)
+install (TARGETS ${FILE_NAME13} CONFIGURATIONS Debug DESTINATION Build/Debug)
+install (TARGETS ${FILE_NAME13} CONFIGURATIONS Release DESTINATION Build)
