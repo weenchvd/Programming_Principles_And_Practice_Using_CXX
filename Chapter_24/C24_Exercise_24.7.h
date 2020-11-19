@@ -1,0 +1,39 @@
+﻿/* Exercise 24.7 */
+
+using namespace std;
+
+const char* sp_2 = "  ";
+const char* sp_4 = "    ";
+const char* sp_6 = "      ";
+const char* sp_8 = "        ";
+const char* vsp_2 = "\n\n";
+const char* vsp_3 = "\n\n\n";
+const char* vsp_4 = "\n\n\n\n";
+
+void ClearInput(istream& is);
+
+using Matrix = vector<vector<double>>;
+using Vector = vector<double>;
+
+template<class T> string to_string(const T& t)
+{
+    ostringstream os;
+    os << t;
+    return os.str();
+}
+
+// An exception of this type is thrown when elimination fails.
+struct Elim_failure : std::domain_error {
+    Elim_failure(std::string s) : std::domain_error(s) { }
+};
+
+// An exception of this type is thrown when back substitution fails.
+struct Back_subst_failure : std::domain_error {
+    Back_subst_failure(std::string s) : std::domain_error(s) { }
+};
+
+Vector classical_gaussian_elimination(Matrix A, Vector b);
+void classical_elimination(Matrix& A, Vector& b);
+Vector back_substitution(const Matrix& A, const Vector& b);
+ostream& operator<<(ostream& os, const Matrix& m);
+ostream& operator<<(ostream& os, const Vector& v);
