@@ -518,6 +518,12 @@ public:
         Index max = (*this)[i].size();
         for (Index ii=0; ii<max; ++ii) std::swap((*this)(i,ii),(*this)(j,ii));
     }
+
+    void swap_columns(Index i, Index j)
+    {
+        if (i == j) return;
+        for (Index k = 0; k < this->dim1(); ++k) std::swap((*this)(k, i), (*this)(k, j));
+    }
 };
 
 //-----------------------------------------------------------------------------
