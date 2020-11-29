@@ -43,6 +43,7 @@ int main()
 			
 			string hexSymbols{ "abcdef" };
 			vector<Conforming> conforming;
+			conforming.push_back(Conforming{ '0', 'o' });
 			conforming.push_back(Conforming{ '1', 'l' });
 			conforming.push_back(Conforming{ '2', 'z' });
 			conforming.push_back(Conforming{ '5', 's' });
