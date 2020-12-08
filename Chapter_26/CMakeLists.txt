@@ -11,12 +11,16 @@ set (CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR}/..)
 
 set (FILE_NAME C26_BinarySearch_01)
 set (SOURCE_CXX_LIST ${FILE_NAME}.cpp)
-
+set (FILE_NAME2 C26_Exercise_26.1)
+set (SOURCE_CXX_LIST2 ${FILE_NAME2}.cpp)
 
 # Add source to this project's executable.
 add_executable (${FILE_NAME} ${SOURCE_CXX_LIST})
+add_executable (${FILE_NAME2} ${SOURCE_CXX_LIST2})
 
 
 # TODO: Add tests and install targets if needed.
 install (TARGETS ${FILE_NAME} CONFIGURATIONS Debug DESTINATION Build/Debug)
 install (TARGETS ${FILE_NAME} CONFIGURATIONS Release DESTINATION Build)
+install (TARGETS ${FILE_NAME2} CONFIGURATIONS Debug DESTINATION Build/Debug)
+install (TARGETS ${FILE_NAME2} CONFIGURATIONS Release DESTINATION Build)
