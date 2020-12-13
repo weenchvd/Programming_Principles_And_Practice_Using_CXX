@@ -1,0 +1,20 @@
+# string
+# string
+{ 1 as 0 1 { } empty set }
+{ 2.1 dfg 1 1 { asd dfg rgrg } }
+{ 2.2 dfg 1 1 { asdg dfg } }
+{ 2.3 dfg 1 1 { dfg fhrh zgrgrgr } }
+{ 3.1 cagr 1 1 { agr azgrg brty bzhgr cagr cbrb dgrg dxtgr efgr esgrg fegr fkrht gafef gergt hrhth hzhr ichrt imth jagr jfe kerg klyhy lfeg loyth mfef mmyj naf nzgrg oefe ovrvd pasdf porty qasdf qvnnt ragr rrer saghr sbt tagr ttgtrh uagar ubertb vcegtr vzaf wasdgrt wzgrg xasghe xntrg yaafsd yytu za zzz } }
+{ 3.2 rrer 1 1 { agr azgrg brty bzhgr cagr cbrb dgrg dxtgr efgr esgrg fegr fkrht gafef gergt hrhth hzhr ichrt imth jagr jfe kerg klyhy lfeg loyth mfef mmyj naf nzgrg oefe ovrvd pasdf porty qasdf qvnnt ragr rrer saghr sbt tagr ttgtrh uagar ubertb vcegtr vzaf wasdgrt wzgrg xasghe xntrg yaafsd yytu za zzz } }
+{ 4.1 asaasdasdasargaregaserg9seryguw8oe5tgyhw9ep58tghypwe80gyuw9e5ytgpw8eryhgpwergywerg 1 1 { asaasdasdasargaregaserg9seryguw8oe5tgyhw9ep58tghypwe80gyuw9e5ytgpw8eryhgpwergywerg brgergeghqerggbbbbbrbrbrbbbbbbbbbbb vvevvvvvvvvvvvvweargrgherogi yagaorigheroghqrgagafgag zzzzzz } }
+{ 4.2 mmm 1 1 { aaafae fegreighergfffffffffffffffffffffffffffffffffff jjfijiwejfier mmm yfawefhaeofhergarh zzzzzzzzz } }
+{ 5.1 agr 1 1 { agr azgrg brty bzhgr cagr cbrb dgrg dxtgr efgr esgrg fegr fkrht gafef gergt hrhth hzhr ichrt imth jagr jfe kerg klyhy lfeg loyth mfef mmyj naf nzgrg oefe ovrvd pasdf porty qasdf qvnnt ragr rrer saghr sbt tagr ttgtrh uagar ubertb vcegtr vzaf wasdgrt wzgrg xasghe xntrg yaafsd yytu za zzz } }
+{ 5.2 azgrg 1 1 { agr azgrg brty bzhgr cagr cbrb dgrg dxtgr efgr esgrg fegr fkrht gafef gergt hrhth hzhr ichrt imth jagr jfe kerg klyhy lfeg loyth mfef mmyj naf nzgrg oefe ovrvd pasdf porty qasdf qvnnt ragr rrer saghr sbt tagr ttgtrh uagar ubertb vcegtr vzaf wasdgrt wzgrg xasghe xntrg yaafsd yytu za zzz } }
+{ 5.3 yytu 1 1 { agr azgrg brty bzhgr cagr cbrb dgrg dxtgr efgr esgrg fegr fkrht gafef gergt hrhth hzhr ichrt imth jagr jfe kerg klyhy lfeg loyth mfef mmyj naf nzgrg oefe ovrvd pasdf porty qasdf qvnnt ragr rrer saghr sbt tagr ttgtrh uagar ubertb vcegtr vzaf wasdgrt wzgrg xasghe xntrg yaafsd yytu za zzz } }
+{ 5.4 zzz 1 1 { agr azgrg brty bzhgr cagr cbrb dgrg dxtgr efgr esgrg fegr fkrht gafef gergt hrhth hzhr ichrt imth jagr jfe kerg klyhy lfeg loyth mfef mmyj naf nzgrg oefe ovrvd pasdf porty qasdf qvnnt ragr rrer saghr sbt tagr ttgtrh uagar ubertb vcegtr vzaf wasdgrt wzgrg xasghe xntrg yaafsd yytu za zzz } }
+{ 6.1 agr 1 1 { agr agr agr agr cagr cbrb dgrg dxtgr efgr efgr efgr fkrht gafef gergt hrhth hzhr hzhr hzhr hzhr hzhr hzhr hzhr hzhr loyth mfef mmyj mmyj nzgrg oefe ovrvd pasdf porty qasdf qasdf qasdf qasdf saghr sbt sbt sbt uagar ubertb vcegtr vzaf vzaf vzaf vzaf vzaf vzaf vzaf vzaf vzaf } }
+{ 6.2 gergt 1 1 { agr agr agr agr cagr cbrb dgrg dxtgr efgr efgr efgr fkrht gafef gergt hrhth hzhr hzhr hzhr hzhr hzhr hzhr hzhr hzhr loyth mfef mmyj mmyj nzgrg oefe ovrvd pasdf porty qasdf qasdf qasdf qasdf saghr sbt sbt sbt uagar ubertb vcegtr vzaf vzaf vzaf vzaf vzaf vzaf vzaf vzaf vzaf } }
+{ 6.3 sbt 1 1 { agr agr agr agr cagr cbrb dgrg dxtgr efgr efgr efgr fkrht gafef gergt hrhth hzhr hzhr hzhr hzhr hzhr hzhr hzhr hzhr loyth mfef mmyj mmyj nzgrg oefe ovrvd pasdf porty qasdf qasdf qasdf qasdf saghr sbt sbt sbt uagar ubertb vcegtr vzaf vzaf vzaf vzaf vzaf vzaf vzaf vzaf vzaf } }
+{ 6.4 vzaf 1 1 { agr agr agr agr cagr cbrb dgrg dxtgr efgr efgr efgr fkrht gafef gergt hrhth hzhr hzhr hzhr hzhr hzhr hzhr hzhr hzhr loyth mfef mmyj mmyj nzgrg oefe ovrvd pasdf porty qasdf qasdf qasdf qasdf saghr sbt sbt sbt uagar ubertb vcegtr vzaf vzaf vzaf vzaf vzaf vzaf vzaf vzaf vzaf } }
+{ 7.1 azgrg 1 1 { agr azgrg brty bzhgr cagr cbrb dgrg dxtgr } }
+{ 7.2 cbrb 1 1 { agr azgrg brty bzhgr cagr cbrb dgrg dxtgr efgr } }
