@@ -23,6 +23,14 @@ set (FILE_NAME6 C26_Exercise_26.5)
 set (SOURCE_CXX_LIST6 ${FILE_NAME6}.cpp)
 set (FILE_NAME7 C26_Exercise_26.6)
 set (SOURCE_CXX_LIST7 ${FILE_NAME7}.cpp)
+set (FILE_NAME12 C26_Exercise_26.11)
+set (SOURCE_CXX_LIST12 ${FILE_NAME12}.cpp)
+set (FILE_NAME13 C26_Exercise_26.12)
+set (SOURCE_CXX_LIST13 ${FILE_NAME13}.cpp)
+set (FILE_NAME14 C26_Exercise_26.13)
+set (SOURCE_CXX_LIST14 ${FILE_NAME14}.cpp)
+set (FILE_NAME15 C26_Exercise_26.14)
+set (SOURCE_CXX_LIST15 ${FILE_NAME15}.cpp)
 
 
 # Add source to this project's executable.
@@ -33,6 +41,10 @@ add_executable (${FILE_NAME4} ${SOURCE_CXX_LIST4})
 add_executable (${FILE_NAME5} ${SOURCE_CXX_LIST5})
 add_executable (${FILE_NAME6} ${SOURCE_CXX_LIST6})
 add_executable (${FILE_NAME7} ${SOURCE_CXX_LIST7})
+add_executable (${FILE_NAME12} ${SOURCE_CXX_LIST12})
+add_executable (${FILE_NAME13} ${SOURCE_CXX_LIST13})
+add_executable (${FILE_NAME14} ${SOURCE_CXX_LIST14})
+add_executable (${FILE_NAME15} ${SOURCE_CXX_LIST15})
 
 
 # TODO: Add tests and install targets if needed.
@@ -78,3 +90,11 @@ install (FILES C26_Exercise_26.6_input.txt CONFIGURATIONS Debug DESTINATION Buil
 install (FILES C26_Exercise_26.6_input.txt CONFIGURATIONS Release DESTINATION Build)
 install (FILES C26_Exercise_26.6_solution.txt CONFIGURATIONS Debug DESTINATION Build/Debug)
 install (FILES C26_Exercise_26.6_solution.txt CONFIGURATIONS Release DESTINATION Build)
+install (TARGETS ${FILE_NAME12} CONFIGURATIONS Debug DESTINATION Build/Debug)
+install (TARGETS ${FILE_NAME12} CONFIGURATIONS Release DESTINATION Build)
+install (TARGETS ${FILE_NAME13} CONFIGURATIONS Debug DESTINATION Build/Debug)
+install (TARGETS ${FILE_NAME13} CONFIGURATIONS Release DESTINATION Build)
+install (TARGETS ${FILE_NAME14} CONFIGURATIONS Debug DESTINATION Build/Debug)
+install (TARGETS ${FILE_NAME14} CONFIGURATIONS Release DESTINATION Build)
+install (TARGETS ${FILE_NAME15} CONFIGURATIONS Debug DESTINATION Build/Debug)
+install (TARGETS ${FILE_NAME15} CONFIGURATIONS Release DESTINATION Build)
