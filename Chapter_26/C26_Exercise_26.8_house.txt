@@ -1,0 +1,10 @@
+List of command:
+
+Closed_polyline(Point(450,50), Point(520,50), Point(520,130), Point(450,200))
+Closed_polyline(Point(300,350), Point(600,50), Point(900,350))
+RectanglePPP2(Point(300, 350), 600, 600)
+RectanglePPP2(Point(700, 600), 150, 350)
+Circle(Point(730,800),10)
+RectanglePPP2(Point(400, 550), 200, 200)
+Line(Point(400,630),Point(600,630))
+Line(Point(500,630),Point(500,750))
