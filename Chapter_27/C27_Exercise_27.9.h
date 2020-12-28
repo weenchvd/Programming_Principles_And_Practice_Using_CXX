@@ -55,6 +55,6 @@ bool GetString(char* string, size_t size);
 bool Extend(Word* w, size_t newSize);
 bool AddWord(Word* w, char* word);
 bool AddWordToLinkedList(struct List* lst, char* word);
-int CompareWords(const void** word1, const void** word2);
+int CompareWords(const void* word1, const void* word2);
 
 #endif

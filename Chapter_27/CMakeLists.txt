@@ -11,7 +11,7 @@ set (CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR}/..)
 
 # set 'COMPILE_AS_C' to 'true' to compile all exercises as C sources
 # this only works with Microsoft C/C++ Compiler
-set (COMPILE_AS_C true)
+set (COMPILE_AS_C false)
 
 set (FILE_NAME C27_Exercise_27.1)
 set (SOURCE_CXX_LIST ${FILE_NAME}.cpp)

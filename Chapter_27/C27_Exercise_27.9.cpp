@@ -351,7 +351,7 @@ bool AddWordToLinkedList(struct List* lst, char* word)
 	return true;
 }
 
-int CompareWords(const void** word1, const void** word2)
+int CompareWords(const void* word1, const void* word2)
 {
-	return strcmp(*((char**)word1), *((char**)word2));
+	return strcmp(*((const char**)word1), *((const char**)word2));
 }
